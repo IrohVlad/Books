@@ -15,7 +15,8 @@ const Header: React.FC = () => {
                     <div className="header__param">
                         <label htmlFor="">Categories</label>
                         <select name="" id="">
-                            <option value=""></option>
+                            <option value="relevance">relevance</option>
+                            <option value="newest">newest</option>
                         </select>
                     </div>
                     <div className="header__param">

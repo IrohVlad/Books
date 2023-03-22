@@ -95,6 +95,13 @@ header{
             }
         }
     }
+    .grid__add-button{
+        margin: 20px auto;
+        background-color: blue;
+        color: white;
+        padding: 5px 7px;
+        width: fit-content;
+    }
 }
 @media(max-width:500px){
     .header__params{

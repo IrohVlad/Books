@@ -2,10 +2,11 @@ import React from 'react';
 
 export interface IBook {
     href: string | undefined;
-    title: string
+    title: string;
+    author: string;
 }
 
-const Book: React.FC<IBook> = ({href, title}: IBook) => {
+const Book: React.FC<IBook> = ({href, title, author}: IBook) => {
     return (
         <div className="grid__element">
             <div className="grid__element__img">
@@ -14,6 +15,7 @@ const Book: React.FC<IBook> = ({href, title}: IBook) => {
             <div className="grid__element__title">
                 {title}
             </div>
+            <div className="author">{author}</div>
         </div>
     );
 };

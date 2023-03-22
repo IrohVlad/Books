@@ -1,16 +1,16 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { AnyAction, createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { Dispatch } from 'react';
 
 export interface BooksState {
     loading: boolean;
-    value: Array<object>;
+    value: any;
     error: string|null
 }
 
 const initialState: BooksState = {
-    loading: false,
-    value: [],
+    loading: true,
+    value: {},
     error: null
 }
 
@@ -38,7 +38,7 @@ export const booksSlice = createSlice({
   },
 })
 
-export const getBooks = (url: string) => async (dispatch) => {
+export const getBooks = async (url: string, dispatch: Dispatch<AnyAction> ) => {
     dispatch(fetchBooks());
     try {
         await fetch(url).then(data => data.json()).then(data => dispatch(fetchBooksSucces(data)))
