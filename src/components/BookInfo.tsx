@@ -1,5 +1,6 @@
 import React from 'react';
 import BooksSkeleton from './BooksSkeleton'
+import {key} from '../utils'
 
 const BookInfo = () => {
     interface data {
@@ -8,7 +9,6 @@ const BookInfo = () => {
     }
     const id = new URLSearchParams(window.location.search).get('id')
     const [bookData, setBookData] = React.useState<data>({loading: true, data: {}})
-    const key = 'AIzaSyBMSWzr1PoXVlNOPTvwqr0zwCWaiXfEE2c'
     async function fetchBook () {
         await fetch(`https://www.googleapis.com/books/v1/volumes/${id}?key=${key}`).then(data => data.json()).then(data => setBookData({loading: false, data}))
     }

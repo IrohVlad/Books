@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import { getBooks, getMoreBooks, pageIncrease } from '../redux/slices/booksSlice';
 import {useDispatch, useSelector} from 'react-redux'
 import BooksSkeleton from './BooksSkeleton';
+import { key } from '../utils';
 
 const BookGrig: React.FC = () => {
     const store = useSelector((state: RootState) => state.books)
     const dispatch = useDispatch();
     const navigate = useNavigate()
     const mockArr = [{},{},{},{},{},{},{},{},{},{}];
-    const key = 'AIzaSyBMSWzr1PoXVlNOPTvwqr0zwCWaiXfEE2c'
     React.useEffect(()=>{
         getBooks(`https://www.googleapis.com/books/v1/volumes?orderBy=${store.params.sort}&startIndex=0&maxResults=30&q=${store.params.q}:keys&key=${key}`, dispatch)
     }, [store.params.sort, store.params.q])
