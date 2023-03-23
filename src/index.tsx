@@ -1,10 +1,11 @@
 import './normalize.css'
 import './style.scss'
 import React from 'react'
-import {render} from 'react-dom'
+import ReactDOM from 'react-dom/client'
 import App from './components/App'
-import {store} from './redux/index'
-import { Provider } from 'react-redux'
 
 
-render(<Provider store={store}><App/></Provider>, document.querySelector('.wrapper'))
+const root = ReactDOM.createRoot(document.querySelector('.wrapper'));
+root.render(
+    <App/>
+);

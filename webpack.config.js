@@ -10,6 +10,7 @@ export default {
     },
     mode: 'development',
     devServer: {
+        historyApiFallback: true,
         port: 3000
     },
     module: {
